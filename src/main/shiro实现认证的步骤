@@ -1,0 +1,9 @@
+1.准备一个登录页面
+2.在后台得到用户输入的数据，拿到当前用户，进而将数据保存UsernamePasswordToken，进而将数据保存UsernamePasswordToken对象.login(upt)，
+会到自定义的realm里面doGetAuthenticationInfo去实现认证
+3.完成认证需要返回一个new SimpleAuthenticationInfo(principal,credentials,salt,realmName);
+(1)principal待认证的身份(一般都是用户名或者邮箱)和UsernamePasswordToken里面的principal比对
+(2)credentials待认证的密码和UsernamePasswordToken里面的密码比对
+(3)salt给UsernamePasswordToken里面的密码以salt加盐
+(4)realm名称
+4.认证成功的标志：在这个doGetAuthenticationInfo方法不抛出任何异常
